@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg-dark: #0e0e0e;
+  --text-light: #ffffff;
+  --text-muted: #aaaaaa;
+  --red: #ff4c4c;
+  --gray-glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --radius: 1rem;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--red);
+}
+
+button {
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: var(--radius);
+  transition: transform var(--transition), background-color var(--transition);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.glass-card {
+  background: var(--gray-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ff4c4c, #ddd, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flip-card {
+  background: var(--gray-glass);
+  perspective: 1000px;
+  width: 260px;
+  height: 200px;
+  border-radius: var(--radius);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s var(--transition);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.flip-card-back {
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--text-muted);
+  transform: rotateY(180deg);
+}
+
+html {
+  scroll-behavior: smooth;;
+}
