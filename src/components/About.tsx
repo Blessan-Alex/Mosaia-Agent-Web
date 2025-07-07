@@ -16,7 +16,7 @@ const features = [
   },
   {
     title: 'Pranali Unavane',
-    description: 'Built to be decentralized and verifiable.',
+    description: 'Connecting your tools, effortlessly.',
     image: pranaliImg,
   },
 ];
