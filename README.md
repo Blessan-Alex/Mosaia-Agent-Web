@@ -1,5 +1,13 @@
 # React + TypeScript + Vite
 
+## Related Projects & Tools
+
+- [Google Sheets Mosaia Tool (GitHub)](https://github.com/Blessan-Alex/googlesheet-mosaia-tool)
+- [Slack Agent (GitHub)](https://github.com/rhapsodicpug/slack1)
+- [AI Task Extractor Agent (Mosaia)](https://www.mosaia.ai/user/bless/agent/AI-TaskExtractor)
+- [Google Sheets Writer Tool (Mosaia)](https://www.mosaia.ai/user/bless/tool/google-sheets-writer)
+- [Slack Task Extractor Tool (Mosaia)](https://www.mosaia.ai/user/rhapsodicpug/tool/slack-task-extractor)
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
