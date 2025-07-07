@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const actions = [
   { title: '🔍 Open Slack Agent', link: '#tools' },

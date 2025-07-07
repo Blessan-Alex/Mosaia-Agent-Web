@@ -1,4 +1,3 @@
-import React from 'react';
 import blessanImg from '../assets/blessan.png';
 import aryaImg from '../assets/arya.jpg';
 import pranaliImg from '../assets/pranali.jpg';

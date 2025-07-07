@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import ToolsSection from './components/ToolsSection';
 import CommandPalette from './components/CommandPalette';
@@ -6,8 +6,6 @@ import AboutSection from './components/About';
 import ConnectSection from './components/Connect';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import slackIcon from './assets/slack.svg';
-import notionIcon from './assets/notion.svg';
 import { Routes, Route } from 'react-router-dom';
 import SlackAgentPage from './pages/SlackAgentPage';
 

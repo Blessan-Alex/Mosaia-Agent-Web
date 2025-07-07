@@ -1,4 +1,3 @@
-import React from 'react';
 import AgentCard from './AgentCard';
 
 // Importing icons from local assets folder

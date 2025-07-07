@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ConnectSection = () => {
   return (
     <section id="connect" data-aos="zoom-in"  className="w-full mt-20 px-6 py-12 text-white text-center">
