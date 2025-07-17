@@ -11,9 +11,6 @@
     <!-- Tailwind CSS CDN (Fallback) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Spline Viewer Script -->
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.22/build/spline-viewer.js"></script>
-
     <script>
       tailwind.config = {
         theme: {
@@ -28,13 +25,15 @@
   </head>
 
   <body>
+    <div id="root"></div>
+
+    <!-- Spline Viewer Script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.22/build/spline-viewer.js"></script>
     <!-- Spline Animation (Background Layer) -->
     <spline-viewer
       url="https://prod.spline.design/ong8NJtDOFY5Ym8t/scene.splinecode"
-      style="position: fixed; inset: 0; z-index: -1; opacity: 0.8;"
+      style="position: fixed; inset: 0; z-index: -1; opacity: 1; transform: scale(1.5);"
     ></spline-viewer>
-
-    <div id="root"></div>
 
     <script type="module" src="/src/main.tsx"></script>
   </body>

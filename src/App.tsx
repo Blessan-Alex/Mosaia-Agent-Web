@@ -12,153 +12,123 @@ import SlackAgentPage from './pages/SlackAgentPage';
 function App() {
   useEffect(() => {
     AOS.init({
-    duration: 800,
-    once: true,
-   });
-    // const parallax = document.getElementById('parallax');
-    // let animationFrameId: number | null = null;
-
-    // const handleMouseMove = (e: MouseEvent) => {
-    //   if (parallax) {
-    //     if (animationFrameId) {
-    //       cancelAnimationFrame(animationFrameId);
-    //     }
-    //     animationFrameId = requestAnimationFrame(() => {
-    //       const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    //       const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    //       parallax.style.transform = `translate(${x}px, ${y}px)`;
-    //     });
-    //   }
-    // };
-
-    // window.addEventListener('mousemove', handleMouseMove);
-    // return () => {
-    //   window.removeEventListener('mousemove', handleMouseMove);
-    //   if (animationFrameId) {
-    //     cancelAnimationFrame(animationFrameId);
-    //   }
-    // };
+      duration: 800,
+      once: true,
+    });
   }, []);
 
   return (
     <div className="relative min-h-screen text-white font-['Inter'] z-0">
-
-      {/* 🌌 Spline Parallax Background */}
-      <div
-        id="parallax"
-        className="absolute inset-0 z-0 transition-transform duration-100 ease-out"
-        style={{ opacity: 0.1 }}
-        dangerouslySetInnerHTML={{
-          __html: `<spline-viewer url="https://prod.spline.design/ong8NJtDOFY5Ym8t/scene.splinecode" style="width: 100%; height: 100%; pointer-events: none;"></spline-viewer>`,
-        }}
-      />
-
       {/* 🖤 Overlay Gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/90 via-black/80 to-[#0e0e0e]" />
-
+      {/* 🏠 Hero Section - moved to top */}
+      <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center pb-8">
+        {/* Powered by Mosaia logo above the hero heading */}
+        <div className="flex flex-col items-center mb-0 mt-0">
+          <div className="flex items-center bg-white rounded-full shadow px-5 py-2">
+            <span className="text-xs text-gray-700 mr-1 font-['Inter']">powered by</span>
+            <img src="/assets/MosaiaLogo.svg" alt="Mosaia Logo" className="h-5 w-auto opacity-80" />
+          </div>
+        </div>
+        <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text mt-12 leading-relaxed py-6">
+          Let Agents Handle the Boring Stuff
+        </h1>
+        <h2 className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl text-gray-300 font-medium leading-relaxed">
+          <span className="block font-semibold text-white">
+            Supercharge your workflow with <span className="text-white font-bold">Slack</span> & <span className="text-white font-bold">Notion</span> agents.
+          </span>
+          <span className="block mt-2 text-white/90 text-xl font-semibold">
+            Powered by <span className="text-white font-semibold not-italic">Mosaia</span>. No fluff. Just flow.
+          </span>
+        </h2>
+        {/* 🚀 CTA Buttons */}
+        <div className="mt-10 text-sm text-gray-400 flex flex-col items-center space-y-4">
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#tools"
+              className="bg-white text-black font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-transform shadow-md"
+            >
+              → Try It in Action
+            </a>
+            <a
+              href="https://youtu.be/uBPvUVoWk0k?si=YRL1iTSP7ZM3rLHQ"
+              target="_blank"
+              rel="noreferrer"
+              className="border border-white text-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition-colors"
+            >
+              → Watch 30s Demo
+            </a>
+          </div>
+          <p>Seamless, autonomous, and always in sync.</p>
+        </div>
+      </section>
       {/* ✨ Main Content */}
-      <div className="relative z-10 px-6 py-16 max-w-6xl mx-auto flex flex-col items-center justify-center text-center">
-        <Navbar />
-        <CommandPalette />
-        <Routes>
-          <Route path="/" element={
-            <>
-              {/* 🏠 Hero Section */}
-              <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center pb-8">
-                <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text mt-12 leading-relaxed py-6">
-                  Let Agents Handle the Boring Stuff
-                </h1>
-                <h2 className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl text-gray-300 font-medium leading-relaxed">
-                  <span className="block font-semibold text-white">
-                    Supercharge your workflow with <span className="text-white font-bold">Slack</span> & <span className="text-white font-bold">Notion</span> agents.
-                  </span>
-                  <span className="block mt-2 text-white/90 text-xl font-semibold">
-                    Let AI handle the busywork—so you can focus on what matters most.
-                  </span>
-                  <span className="block mt-2 text-gray-400 italic">
-                    Powered by <span className="text-white font-semibold not-italic">Mosaia</span>. No fluff. Just flow.
-                  </span>
-                </h2>
-                {/* 🚀 CTA Buttons */}
-                <div className="mt-10 text-sm text-gray-400 flex flex-col items-center space-y-4">
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <a
-                      href="#tools"
-                      className="bg-white text-black font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-transform shadow-md"
-                    >
-                      → Try It in Action
-                    </a>
-                    <a
-                      href="https://youtube.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="border border-white text-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition-colors"
-                    >
-                      → Watch 30s Demo
-                    </a>
-                  </div>
-                  <p>Decentralized, autonomous, and always in sync.</p>
-                </div>
-              </section>
-              {/* 🤖 Agents Section */}
-              <ToolsSection />
-              {/* 📖 About Section */}
-              <AboutSection />
-              {/* 🔗 Connect Section */}
-              <ConnectSection />
-            </>
-          } />
-          <Route path="/slack-agent" element={<SlackAgentPage />} />
-          <Route path="/notion-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Notion Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/discord-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Discord Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/whatsapp-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">WhatsApp Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/gmeet-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">GMeet Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/zoom-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Zoom Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/teams-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Teams Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/telegram-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Telegram Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-          <Route path="/email-agent" element={
-            <div className="flex flex-col items-center justify-center min-h-[60vh]">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Email Agent</h1>
-              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
-            </div>
-          } />
-        </Routes>
-      </div>
+      <Navbar />
+      <CommandPalette />
+      <Routes>
+        <Route path="/" element={
+          <>
+            {/* 🏠 Hero Section */}
+            {/* Powered by Mosaia logo at the absolute bottom center */}
+            {/* This block is now moved inside the hero section */}
+            {/* 🤖 Agents Section */}
+            <ToolsSection />
+            {/* 📖 About Section */}
+            <AboutSection />
+            {/* 🔗 Connect Section */}
+            <ConnectSection />
+          </>
+        } />
+        <Route path="/slack-agent" element={<SlackAgentPage />} />
+        <Route path="/notion-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Notion Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/discord-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Discord Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/whatsapp-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">WhatsApp Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/gmeet-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">GMeet Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/zoom-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Zoom Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/teams-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Teams Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/telegram-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Telegram Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+        <Route path="/email-agent" element={
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Email Agent</h1>
+            <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+          </div>
+        } />
+      </Routes>
     </div>
   );
 }
