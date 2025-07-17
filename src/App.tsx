@@ -100,10 +100,10 @@ function App() {
                   <p>Decentralized, autonomous, and always in sync.</p>
                 </div>
               </section>
+              {/* 🤖 Agents Section */}
+              <ToolsSection />
               {/* 📖 About Section */}
               <AboutSection />
-              {/* 🛠️ Tools Section */}
-              <ToolsSection />
               {/* 🔗 Connect Section */}
               <ConnectSection />
             </>
@@ -112,6 +112,48 @@ function App() {
           <Route path="/notion-agent" element={
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Notion Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/discord-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Discord Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/whatsapp-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">WhatsApp Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/gmeet-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">GMeet Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/zoom-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Zoom Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/teams-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Teams Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/telegram-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Telegram Agent</h1>
+              <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
+            </div>
+          } />
+          <Route path="/email-agent" element={
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text">Email Agent</h1>
               <p className="text-lg md:text-2xl text-gray-300 font-semibold">Coming soon!</p>
             </div>
           } />

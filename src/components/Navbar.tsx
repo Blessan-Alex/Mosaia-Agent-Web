@@ -3,8 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navLinks = [
     { label: 'Home', hash: '#home' },
+    { label: 'Agents', hash: '#tools' },
     { label: 'About', hash: '#about' },
-    { label: 'Tools', hash: '#tools' },
     { label: 'Connect', hash: '#connect' },
   ];
   const location = useLocation();
@@ -37,7 +37,7 @@ const Navbar = () => {
           <li key={link.label}>
             <button
               onClick={() => handleNavClick(link.hash)}
-              className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-red-500 via-gray-300 to-white text-black font-medium shadow hover:scale-105 transition-transform"
+              className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-white via-red-400 to-red-600 text-black font-medium shadow hover:scale-105 transition-transform"
             >
               {link.label}
             </button>

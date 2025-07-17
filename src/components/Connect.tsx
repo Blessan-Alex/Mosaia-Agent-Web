@@ -31,7 +31,7 @@ const ConnectSection = () => {
           />
           <button
             type="submit"
-            className="bg-gradient-to-r from-red-500 to-gray-700 text-white font-semibold py-2 rounded-xl hover:scale-105 transition-transform"
+            className="bg-gradient-to-r from-white via-red-400 to-red-600 text-black font-semibold py-2 rounded-xl hover:scale-105 transition-transform"
           >
             Send Message →
           </button>

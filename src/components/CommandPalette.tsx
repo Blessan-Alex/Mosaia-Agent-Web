@@ -31,7 +31,7 @@ const CommandPalette = () => {
             <li key={action.title}>
               <a
                 href={action.link}
-                className="block w-full bg-gradient-to-r from-red-500 via-gray-300 to-white text-black rounded-xl px-4 py-2 font-medium hover:scale-105 transition-transform"
+                className="block w-full bg-gradient-to-r from-white via-red-400 to-red-600 text-black rounded-xl px-4 py-2 font-medium hover:scale-105 transition-transform"
               >
                 {action.title}
               </a>
