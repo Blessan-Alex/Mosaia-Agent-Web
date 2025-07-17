@@ -21,56 +21,52 @@ function App() {
     <div className="relative min-h-screen text-white font-['Inter'] z-0">
       {/* 🖤 Overlay Gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/90 via-black/80 to-[#0e0e0e]" />
-      {/* 🏠 Hero Section - moved to top */}
-      <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center pb-8">
-        {/* Powered by Mosaia logo above the hero heading */}
-        <div className="flex flex-col items-center mb-0 mt-0">
-          <div className="flex items-center bg-white rounded-full shadow px-5 py-2">
-            <span className="text-xs text-gray-700 mr-1 font-['Inter']">powered by</span>
-            <img src="/assets/MosaiaLogo.svg" alt="Mosaia Logo" className="h-5 w-auto opacity-80" />
-          </div>
-        </div>
-        <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text mt-12 leading-relaxed py-6">
-          Let Agents Handle the Boring Stuff
-        </h1>
-        <h2 className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl text-gray-300 font-medium leading-relaxed">
-          <span className="block font-semibold text-white">
-            Supercharge your workflow with <span className="text-white font-bold">Slack</span> & <span className="text-white font-bold">Notion</span> agents.
-          </span>
-          <span className="block mt-2 text-white/90 text-xl font-semibold">
-            Powered by <span className="text-white font-semibold not-italic">Mosaia</span>. No fluff. Just flow.
-          </span>
-        </h2>
-        {/* 🚀 CTA Buttons */}
-        <div className="mt-10 text-sm text-gray-400 flex flex-col items-center space-y-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#tools"
-              className="bg-white text-black font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-transform shadow-md"
-            >
-              → Try It in Action
-            </a>
-            <a
-              href="https://youtu.be/uBPvUVoWk0k?si=YRL1iTSP7ZM3rLHQ"
-              target="_blank"
-              rel="noreferrer"
-              className="border border-white text-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition-colors"
-            >
-              → Watch 30s Demo
-            </a>
-          </div>
-          <p>Seamless, autonomous, and always in sync.</p>
-        </div>
-      </section>
-      {/* ✨ Main Content */}
       <Navbar />
       <CommandPalette />
       <Routes>
         <Route path="/" element={
           <>
             {/* 🏠 Hero Section */}
-            {/* Powered by Mosaia logo at the absolute bottom center */}
-            {/* This block is now moved inside the hero section */}
+            <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center pb-8">
+              {/* Powered by Mosaia logo above the hero heading */}
+              <div className="flex flex-col items-center mb-0 mt-0">
+                <div className="flex items-center bg-white rounded-full shadow px-5 py-2">
+                  <span className="text-xs text-gray-700 mr-1 font-['Inter']">powered by</span>
+                  <img src="/assets/MosaiaLogo.svg" alt="Mosaia Logo" className="h-5 w-auto opacity-80" />
+                </div>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-500 via-gray-100 to-white text-transparent bg-clip-text mt-12 leading-relaxed py-6">
+                Let Agents Handle the Boring Stuff
+              </h1>
+              <h2 className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl text-gray-300 font-medium leading-relaxed">
+                <span className="block font-semibold text-white">
+                  Supercharge your workflow with <span className="text-white font-bold">Slack</span> & <span className="text-white font-bold">Notion</span> agents.
+                </span>
+                <span className="block mt-2 text-white/90 text-xl font-semibold">
+                  Powered by <span className="text-white font-semibold not-italic">Mosaia</span>. No fluff. Just flow.
+                </span>
+              </h2>
+              {/* 🚀 CTA Buttons */}
+              <div className="mt-10 text-sm text-gray-400 flex flex-col items-center space-y-4">
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a
+                    href="#tools"
+                    className="bg-white text-black font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-transform shadow-md"
+                  >
+                    → Try It in Action
+                  </a>
+                  <a
+                    href="https://youtu.be/uBPvUVoWk0k?si=YRL1iTSP7ZM3rLHQ"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border border-white text-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition-colors"
+                  >
+                    → Watch 30s Demo
+                  </a>
+                </div>
+                <p>Seamless, autonomous, and always in sync.</p>
+              </div>
+            </section>
             {/* 🤖 Agents Section */}
             <ToolsSection />
             {/* 📖 About Section */}

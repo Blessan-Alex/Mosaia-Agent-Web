@@ -179,9 +179,9 @@ const SlackAgentPage = () => {
   };
 
   return (
-    <div className="relative flex flex-row h-screen">
+    <div className="relative flex flex-row h-screen min-h-0 pt-20 overflow-hidden">
       {/* Integration Sidebar */}
-      <div className="absolute top-0left-0 h-full w-80 bg-gray-950der-r border-white/10 z-20">
+      <div className="absolute top-0left-0 h-full min-h-0 w-80 bg-gray-950der-r border-white/10 z-20 overflow-y-auto max-h-screen scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300">
         <div className="p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-white">Slack Integration</h2>
@@ -366,7 +366,7 @@ const SlackAgentPage = () => {
           )}
 
           {/* Integration Complete */}
-          {integrationSteps[4] && (
+          {integrationSteps[4]?.completed && (
             <div className="mb-6">
               <div className="text-center p-4 bg-green-500/10 border border-green-500">
                 <div className="text-green-400 text-lg mb-2">✅</div>
@@ -393,7 +393,7 @@ const SlackAgentPage = () => {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col h-full bg-transparent ml-80">
+      <div className="flex-1 flex flex-col h-full min-h-0 bg-transparent ml-80">
         {/* Place chat UI elements directly here, no extra container */}
         <div className="flex flex-row items-center justify-between px-8 pt-6 pb-2 border-b border-white/10">
           <h1 className="text-xl md:text-2xl font-extrabold tracking-tight mb-1 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Slack Agent</h1>
