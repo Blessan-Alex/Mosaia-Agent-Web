@@ -6,7 +6,6 @@ import notionIcon from '../assets/notion.svg';
 import discordIcon from '../assets/discord.svg';
 import whatsappIcon from '../assets/whatsapp.svg';
 import gmeetIcon from '../assets/gmeet.svg';
-import genericIcon from '../assets/notion.svg'; // Use Notion icon as a placeholder for coming soon agents
 import zoomIcon from '../assets/zoom.svg';
 import teamsIcon from '../assets/teams.svg';
 import telegramIcon from '../assets/telegram.svg';

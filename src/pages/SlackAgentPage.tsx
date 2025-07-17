@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 const SLACK_CLIENT_ID = '9133067521076.9119279735127';
-const SLACK_CLIENT_SECRET = 'cf21215f3024f16efb53fb5b9110132f';
 const SLACK_REDIRECT_URI = 'https://agentflowmosaia.netlify.app/auth/slack';
 const SLACK_BOT_INVITE_URL = `https://slack.com/oauth/v2/authorize?client_id=${SLACK_CLIENT_ID}&scope=channels:read,users:read,chat:write,commands,app_mentions:read,im:history,groups:read,mpim:read,channels:join,channels:manage,users:read.email,team:read,users.profile:read,channels:history,groups:history,im:read,mpim:history,users:read&redirect_uri=${encodeURIComponent(SLACK_REDIRECT_URI)}`;
 const MOSAIA_MODEL_ID = '686b0d9faa87d15459024604';
@@ -34,12 +33,6 @@ interface SlackChannel {
   isPrivate: boolean;
 }
 
-interface GoogleSheet {
-  id: string;
-  name: string;
-  url: string;
-}
-
 const SlackAgentPage = () => {
   type Message = { sender: 'user' | 'agent'; text: string };
   
@@ -64,7 +57,6 @@ const SlackAgentPage = () => {
   const [workspaceConnected, setWorkspaceConnected] = useState(false);
   const [selectedWorkspace, setSelectedWorkspace] = useState<SlackWorkspace | null>(null);
   const [selectedChannel, setSelectedChannel] = useState<SlackChannel | null>(null);
-  const [slackToken, setSlackToken] = useState('');
   const [slackChannels, setSlackChannels] = useState<SlackChannel[]>([]);
   const [loadingChannels, setLoadingChannels] = useState(false);
   
@@ -74,7 +66,6 @@ const SlackAgentPage = () => {
   const [sheetsConnected, setSheetsConnected] = useState(false);
   
   // Form States
-  const [showTokenForm, setShowTokenForm] = useState(false);
   const [showSheetForm, setShowSheetForm] = useState(false);
   const [testingIntegration, setTestingIntegration] = useState(false);
   
@@ -127,66 +118,6 @@ const SlackAgentPage = () => {
   };
 
   // Slack Integration Functions
-  const handleConnectSlack = () => {
-    setShowTokenForm(true);
-  };
-
-  const handleTokenSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!slackToken.trim()) return;
-    
-    setLoadingChannels(true);
-    try {
-      // Simulate API call to validate token and get workspace info
-      await new Promise(resolve => setTimeout(resolve, 100));
-      const mockWorkspace: SlackWorkspace = {
-        id: 'T1234567890',
-        name: 'My Workspace',
-        domain: 'myworkspace',
-        token: slackToken
-      };
-      
-      setSelectedWorkspace(mockWorkspace);
-      setWorkspaceConnected(true);
-      setShowTokenForm(false);
-      
-      // Update integration steps
-      setIntegrationSteps(prev => prev.map(step => 
-        step.id === 1 ? { ...step, completed: true, inProgress: false } : 
-        step.id === 2 ? { ...step, inProgress: true } : step
-      ));
-      
-      // Load channels
-      await loadSlackChannels();
-      
-    } catch (error) {
-      console.error('Failed to connect Slack:', error);
-    } finally {
-      setLoadingChannels(false);
-    }
-  };
-
-  const loadSlackChannels = async () => {
-    setLoadingChannels(true);
-    try {
-      // Simulate API call to get channels
-      await new Promise(resolve => setTimeout(resolve, 80));
-      const mockChannels: SlackChannel[] = [
-        { id: 'C1234567890', name: 'general', members: 15, isPrivate: false },
-        { id: 'C1234567891', name: 'random', members: 8, isPrivate: false },
-        { id: 'C1234567892', name: 'project-alpha', members: 12, isPrivate: false },
-        { id: 'C1234567893', name: 'support', members: 5, isPrivate: false },
-        { id: 'C1234567894', name: 'announcements', members: 20, isPrivate: false }
-      ];
-      
-      setSlackChannels(mockChannels);
-    } catch (error) {
-      console.error('Failed to load channels:', error);
-    } finally {
-      setLoadingChannels(false);
-    }
-  };
-
   const handleChannelSelect = (channel: SlackChannel) => {
     setSelectedChannel(channel);
     setIntegrationSteps(prev => prev.map(step => 
@@ -246,13 +177,6 @@ const SlackAgentPage = () => {
       setTestingIntegration(false);
     }
   };
-
-  const mockChannels = [
-    { id: 'general', name: '#general', members: 15 },
-    { id: 'random', name: '#random', members: 8 },
-    { id: 'project-alpha', name: '#project-alpha', members: 12 },
-    { id: 'support', name: '#support', members: 5 }
-  ];
 
   return (
     <div className="relative flex flex-row h-screen">
