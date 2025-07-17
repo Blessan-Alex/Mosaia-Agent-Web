@@ -37,26 +37,12 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // TODO: Store tokenData.authed_user.id, tokenData.access_token, etc. in your DB if needed
-  // For now, just return the user ID and workspace info as JSON
-
-  // Optionally, redirect to your frontend with info as query params
-  // return {
-  //   statusCode: 302,
-  //   headers: {
-  //     Location: `https://agentflowmosaia.netlify.app/success?user=${tokenData.authed_user.id}`
-  //   },
-  //   body: ''
-  // };
-
+  // Redirect to frontend with info as query params
   return {
-    statusCode: 200,
-    body: JSON.stringify({
-      user_id: tokenData.authed_user.id,
-      team_id: tokenData.team.id,
-      team_name: tokenData.team.name,
-      access_token: tokenData.access_token,
-      authed_user: tokenData.authed_user
-    })
+    statusCode: 302,
+    headers: {
+      Location: `https://agentflowmosaia.netlify.app/slack-agent?user_id=${tokenData.authed_user.id}&team_id=${tokenData.team.id}&access_token=${tokenData.access_token}`
+    },
+    body: ''
   };
 }; 

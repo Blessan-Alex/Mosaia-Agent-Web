@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useLocation } from 'react-router-dom';
 
 const SLACK_CLIENT_ID = '9133067521076.9119279735127';
 const SLACK_REDIRECT_URI = 'https://agentflowmosaia.netlify.app/auth/slack';
@@ -70,6 +71,21 @@ const SlackAgentPage = () => {
   const [testingIntegration, setTestingIntegration] = useState(false);
   
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const userId = params.get('user_id');
+    const teamId = params.get('team_id');
+    const accessToken = params.get('access_token');
+    if (userId && teamId && accessToken) {
+      localStorage.setItem('slackUserId', userId);
+      localStorage.setItem('slackTeamId', teamId);
+      localStorage.setItem('slackAccessToken', accessToken);
+      // Optionally, you can clear the query params from the URL here
+      window.history.replaceState({}, document.title, location.pathname);
+    }
+  }, [location]);
 
   useEffect(() => {
     localStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(messages));
