@@ -54,11 +54,11 @@ const SlackAgentPage = () => {
   ]);
   
   // Slack Integration States
-  const [workspaceConnected, setWorkspaceConnected] = useState(false);
-  const [selectedWorkspace, setSelectedWorkspace] = useState<SlackWorkspace | null>(null);
+  const [workspaceConnected] = useState(false);
+  const [selectedWorkspace] = useState<SlackWorkspace | null>(null);
   const [selectedChannel, setSelectedChannel] = useState<SlackChannel | null>(null);
-  const [slackChannels, setSlackChannels] = useState<SlackChannel[]>([]);
-  const [loadingChannels, setLoadingChannels] = useState(false);
+  const [slackChannels] = useState<SlackChannel[]>([]);
+  const [loadingChannels] = useState(false);
   
   // Google Sheets States
   const [googleSheetId, setGoogleSheetId] = useState('');
